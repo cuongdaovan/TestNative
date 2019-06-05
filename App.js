@@ -113,14 +113,6 @@ export default class App extends React.Component {
         justifyContent: "flex-end",
         alignItems: "center"
       },
-      capture: {
-        flex: 0,
-        backgroundColor: "steelblue",
-        borderRadius: 10,
-        color: "red",
-        padding: 15,
-        margin: 45
-      },
 
       joystickLeft: {
         position: "absolute",
@@ -135,10 +127,13 @@ export default class App extends React.Component {
         height: width / 3,
         top: height / 2,
         left: (width / 3) * 2 + 40
+      },
+      joystick: {
+        backgroundColor: "transparent"
       }
     });
     var options = {
-      color: "green",
+      color: "#fff",
       mode: "static",
       size: 500,
       position: {
@@ -149,7 +144,7 @@ export default class App extends React.Component {
       lockY: false
     };
     var options2 = {
-      color: "red",
+      color: "#fff",
       mode: "static",
       size: 500,
       position: {
@@ -180,7 +175,7 @@ export default class App extends React.Component {
                   options={options}
                   // onStart={this.handleOnStart}
                   // onMove={this.handleOnMove}
-                  styles={{ backgroundColor: "transparent" }}
+                  styles={styles.joystick}
                 />
               </View>
             </TouchableHighlight>
@@ -191,7 +186,7 @@ export default class App extends React.Component {
                   // onStart={this.handleOnRightStart}
                   // onEnd={this.handleOnRightEnd}
                   // onMove={this.handleOnMove}
-                  styles={{ backgroundColor: "transparent" }}
+                  styles={styles.joystick}
                 />
               </View>
             </TouchableHighlight>
