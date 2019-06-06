@@ -133,7 +133,7 @@ export default class App extends React.Component {
       }
     });
     var options = {
-      color: "#fff",
+      color: "red",
       mode: "static",
       size: 500,
       position: {
@@ -144,7 +144,7 @@ export default class App extends React.Component {
       lockY: false
     };
     var options2 = {
-      color: "#fff",
+      color: "green",
       mode: "static",
       size: 500,
       position: {
