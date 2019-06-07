@@ -103,8 +103,8 @@ export default class Joystick extends React.Component {
   injectJSFileFromWeb = () => {
     //give the filename according to your need
     var jsFileName =
-      "https://cdnjs.cloudflare.com/ajax/libs/nipplejs/0.7.3/nipplejs.min.js";
-      
+      "nipplejs.min.js";
+
     var fp = `
         var corescript = document.createElement('script');
         corescript.type = 'text/javascript';
