@@ -118,7 +118,7 @@ export default class Joystick extends React.Component {
     const styles = this.props.styles ? this.props.styles : "";
     return (
       <WebView
-        source={{uri: "/assets/html/index.html"}}
+        source={{uri: "http://localhost:19001/assets/html/index.html"}}
         // source={html}
         injectedJavaScript={js(options)}
         javaScriptEnabled={true}
