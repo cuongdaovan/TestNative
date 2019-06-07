@@ -135,6 +135,7 @@ export default class Joystick extends React.Component {
         ref={webview => {
           this.webView = webview;
         }}
+        
         style={styles}
         // onLoad={() => {
         //   {
