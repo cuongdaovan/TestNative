@@ -7,6 +7,7 @@ import {
   TouchableHighlight
 } from "react-native";
 import {FileSystem} from "expo"
+import { Platform } from "expo-core";
 const html = require("./assets/html/index.html");
 console.log(FileSystem.documentDirectory)
 const js = options => {
@@ -102,7 +103,8 @@ export default class Joystick extends React.Component {
   }
   injectJSFileFromWeb = () => {
     //give the filename according to your need
-    var jsFileName = FileSystem.documentDirectory+"/assets/html/nipplejs.min.js";
+    var jsFileName = FileSystem.documentDirectory+"nipplejs.min.js";
+    console.log(jsFileName);
     var fp = `
         var corescript = document.createElement('script');
         corescript.type = 'text/javascript';
@@ -118,8 +120,8 @@ export default class Joystick extends React.Component {
     const styles = this.props.styles ? this.props.styles : "";
     return (
       <WebView
-        // source={{uri: "file:///./assets/html/index.html"}}
         source={html}
+        // source={{uri: "./assets/html/index.html"}}
         injectedJavaScript={js(options)}
         javaScriptEnabled={true}
         domStorageEnabled={true}
@@ -133,13 +135,12 @@ export default class Joystick extends React.Component {
         ref={webview => {
           this.webView = webview;
         }}
-        useWebKit={true}
         style={styles}
-        onLoad={() => {
-          {
-            this.injectJSFileFromWeb();
-          }
-        }}
+        // onLoad={() => {
+        //   {
+        //     this.injectJSFileFromWeb();
+        //   }
+        // }}
       />
     );
   }
