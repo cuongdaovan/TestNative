@@ -6,9 +6,9 @@ import {
   WebView,
   TouchableHighlight
 } from "react-native";
+import {FileSystem} from "expo"
 const html = require("./assets/html/index.html");
-const s =
-  '<html> <body> <div onclick="touch()" id="zone_joystick" style="position: absolute;width: 100%;height: 100%;background-color: rgb(204, 204, 204)">cuongdaovan</div></body><script src="./nipplejs.min.js"></script></html>';
+console.log(FileSystem.documentDirectory)
 const js = options => {
   let string = `
       setTimeout(() => {
@@ -102,7 +102,7 @@ export default class Joystick extends React.Component {
   }
   injectJSFileFromWeb = () => {
     //give the filename according to your need
-    var jsFileName = "http://localhost:19001/assets/html/nipplejs.min.js";
+    var jsFileName = FileSystem.documentDirectory+"/assets/html/nipplejs.min.js";
     var fp = `
         var corescript = document.createElement('script');
         corescript.type = 'text/javascript';
@@ -118,8 +118,8 @@ export default class Joystick extends React.Component {
     const styles = this.props.styles ? this.props.styles : "";
     return (
       <WebView
-        source={{uri: "http://localhost:19001/assets/html/index.html"}}
-        // source={html}
+        // source={{uri: "file:///./assets/html/index.html"}}
+        source={html}
         injectedJavaScript={js(options)}
         javaScriptEnabled={true}
         domStorageEnabled={true}
