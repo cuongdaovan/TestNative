@@ -103,12 +103,12 @@ export default class Joystick extends React.Component {
   }
 
   render() {
-    options = this.props.options;
-    styles = this.props.styles ? this.props.styles : "";
+    const options = this.props.options;
+    const styles = this.props.styles ? this.props.styles : "";
     return (
       <WebView
         source={html}
-        // injectedJavaScript={js(options)}
+        injectedJavaScript={js(options)}
         javaScriptEnabled={true}
         domStorageEnabled={true}
         mixedContentMode="always"
