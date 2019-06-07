@@ -24,6 +24,7 @@ export default class App extends React.Component {
       lastLeftPress: 0
     };
   }
+  
   async componentWillMount() {
     const { status } = await Permissions.askAsync(Permissions.CAMERA);
     this.setState({ hasCameraPermission: status === "granted" });
