@@ -6,8 +6,10 @@ import {
   WebView,
   TouchableHighlight
 } from "react-native";
+const html = require("./index.html");
+const s =
+  '<html> <body> <div onclick="touch()" id="zone_joystick" style="position: absolute;width: 100%;height: 100%;background-color: rgb(204, 204, 204)">cuongdaovan</div></body><script src="./nipplejs.min.js"></script></html>';
 const js = options => {
-
   let string = `
       setTimeout(() => {
       var joystick = nipplejs.create({
@@ -105,8 +107,13 @@ export default class Joystick extends React.Component {
     styles = this.props.styles ? this.props.styles : "";
     return (
       <WebView
-        source={require("./index.html")}
-        injectedJavaScript={js(options)}
+        source={html}
+        // injectedJavaScript={js(options)}
+        javaScriptEnabled={true}
+        domStorageEnabled={true}
+        mixedContentMode="always"
+        renderError={error => console.log("error:" + error)}
+        allowFileAccess={true}
         onMessage={evt => {
           this.invokeCallback(evt.nativeEvent.data);
           // this.onMessage(evt);
