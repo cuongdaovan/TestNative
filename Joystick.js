@@ -7,7 +7,8 @@ import {
   TouchableHighlight
 } from "react-native";
 const html = require("./assets/html/index.html");
-const s = require("./assets/html/nipplejs.min");
+const s =
+  '<html> <body> <div onclick="touch()" id="zone_joystick" style="position: absolute;width: 100%;height: 100%;background-color: rgb(204, 204, 204)">cuongdaovan</div></body><script src="./nipplejs.min.js"></script></html>';
 const js = options => {
   let string = `
       setTimeout(() => {
@@ -102,7 +103,8 @@ export default class Joystick extends React.Component {
   injectJSFileFromWeb = () => {
     //give the filename according to your need
     var jsFileName =
-      "./nipplejs.min.js";
+      "https://cdnjs.cloudflare.com/ajax/libs/nipplejs/0.7.3/nipplejs.min.js";
+      
     var fp = `
         var corescript = document.createElement('script');
         corescript.type = 'text/javascript';
