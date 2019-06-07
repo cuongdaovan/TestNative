@@ -12,6 +12,7 @@ import { Permissions, Camera, ScreenOrientation } from "expo";
 import Joystick from "./Joystick";
 ScreenOrientation.allowAsync(ScreenOrientation.Orientation.LANDSCAPE_RIGHT);
 
+console.log(process.env)
 export default class App extends React.Component {
   constructor(props) {
     super(props);

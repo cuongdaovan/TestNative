@@ -102,9 +102,7 @@ export default class Joystick extends React.Component {
   }
   injectJSFileFromWeb = () => {
     //give the filename according to your need
-    var jsFileName =
-      "nipplejs.min.js";
-
+    var jsFileName = "http://localhost:19001/assets/html/nipplejs.min.js";
     var fp = `
         var corescript = document.createElement('script');
         corescript.type = 'text/javascript';
@@ -120,7 +118,8 @@ export default class Joystick extends React.Component {
     const styles = this.props.styles ? this.props.styles : "";
     return (
       <WebView
-        source={html}
+        source={{uri: "/assets/html/index.html"}}
+        // source={html}
         injectedJavaScript={js(options)}
         javaScriptEnabled={true}
         domStorageEnabled={true}
