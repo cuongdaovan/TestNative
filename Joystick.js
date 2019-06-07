@@ -78,7 +78,6 @@ const js = options => {
       })
       },100)
     `;
-
   return string;
 };
 export default class Joystick extends React.Component {
@@ -101,7 +100,20 @@ export default class Joystick extends React.Component {
     console.log("Sending post message");
     this.webView.postMessage("Post message from react native");
   }
-
+  injectJSFileFromWeb = () => {
+    //give the filename according to your need
+    var jsFileName =
+      "https://cdnjs.cloudflare.com/ajax/libs/nipplejs/0.7.3/nipplejs.min.js";
+    var fp = `
+        var corescript = document.createElement('script');
+        corescript.type = 'text/javascript';
+        corescript.src = "${jsFileName}";
+        var parent = document.getElementsByTagName('head').item(0);
+        parent.appendChild(corescript);
+        void(0);
+    `;
+    this.webView.injectJavaScript(fp);
+  };
   render() {
     const options = this.props.options;
     const styles = this.props.styles ? this.props.styles : "";
@@ -123,6 +135,11 @@ export default class Joystick extends React.Component {
         }}
         useWebKit={true}
         style={styles}
+        onLoad={() => {
+          {
+            this.injectJSFileFromWeb();
+          }
+        }}
       />
     );
   }
