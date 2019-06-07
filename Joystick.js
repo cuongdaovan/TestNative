@@ -6,7 +6,7 @@ import {
   WebView,
   TouchableHighlight
 } from "react-native";
-const html = require("./index.html");
+const html = require("./assets/html/index.html");
 const s =
   '<html> <body> <div onclick="touch()" id="zone_joystick" style="position: absolute;width: 100%;height: 100%;background-color: rgb(204, 204, 204)">cuongdaovan</div></body><script src="./nipplejs.min.js"></script></html>';
 const js = options => {
