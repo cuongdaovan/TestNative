@@ -23,7 +23,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.cuongdaovan.test"
     },
     "description": "abc",
     "githubUrl": "https://github.com/cuongdaovan/TestNative.git"
